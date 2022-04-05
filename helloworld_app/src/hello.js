@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from './logo.png'
 
 class Hello extends React.Component{
     constructor(){
@@ -12,6 +12,7 @@ class Hello extends React.Component{
         return(
             <div>
                 <h1 style={{"color":"red"}}>{this.state.title}</h1>
+                <img src={logo} className="logo"/>
             </div>
         );
     }
