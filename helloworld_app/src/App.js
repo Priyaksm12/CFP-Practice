@@ -1,8 +1,9 @@
 import './App.css';
+import Hello from './hello.js'
 function App() {
   return (
     <div className="App">
-      <h1 className="hello">Hello from BridgeLabz</h1>
+      <Hello/>
     </div>
   );
 }
