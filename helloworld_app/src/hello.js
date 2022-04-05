@@ -6,17 +6,23 @@ class Hello extends React.Component{
     constructor(){
         super()
         this.state = {
-            title : 'hello from bridgelabz'
+            title : 'hello from bridgelabz',
+            username : 'friend'
         }
     }
     imageclick = () =>{
             window.open(this.url,'_blank');
     }
+    namechange = (event) =>{
+        this.setState({username : event.target.value})
+    }
     render(){
         return(
             <div>
-                <h1 style={{"color":"red"}}>{this.state.title}</h1>
-                <img src={logo} className="logo" onClick={this.imageclick}/>
+                
+                <h1 style={{"color":"red"}}>hello {this.state.username} from bridgelabz</h1>
+                <img src={logo} className="logo" onClick={this.imageclick}/><br/>
+                <input type="text" placeholder='Type the Name here...' onChange={this.namechange}/>
             </div>
         );
     }
