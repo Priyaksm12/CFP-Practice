@@ -7,7 +7,8 @@ class Hello extends React.Component{
         super()
         this.state = {
             title : 'hello from bridgelabz',
-            username : 'friend'
+            username : 'friend',
+            error:''
         }
     }
     imageclick = () =>{
@@ -15,6 +16,13 @@ class Hello extends React.Component{
     }
     namechange = (event) =>{
         this.setState({username : event.target.value})
+        const nameregex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+        if(nameregex.test(event.target.value)){
+            this.setState({error : ''})
+        }
+        else{
+            this.setState({error : 'Name is Incorrect'})
+        }
     }
     render(){
         return(
@@ -22,7 +30,8 @@ class Hello extends React.Component{
                 
                 <h1 style={{"color":"red"}}>hello {this.state.username} from bridgelabz</h1>
                 <img src={logo} className="logo" onClick={this.imageclick}/><br/>
-                <input type="text" placeholder='Type the Name here...' onChange={this.namechange}/>
+                <input type="text" placeholder='Type the Name here...' onChange={this.namechange}/><br/><br/>
+                <span className='error'>{this.state.error}</span>
             </div>
         );
     }
